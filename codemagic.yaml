@@ -1,0 +1,14 @@
+workflows:
+  build_migx:
+    name: Build MigX Android AppBundle
+    environment:
+      flutter_version: "3.7.12"     # Latest stable Flutter version
+    scripts:
+      - name: Clean project
+        script: flutter clean
+      - name: Get dependencies
+        script: flutter pub get
+      - name: Build Android AppBundle (release)
+        script: flutter build appbundle --release
+    artifacts:
+      - build/app/outputs/bundle/release/app-release.aab
